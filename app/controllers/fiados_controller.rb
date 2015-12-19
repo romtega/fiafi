@@ -1,10 +1,11 @@
 class FiadosController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_fiado, only: [:show, :edit, :update, :destroy]
 
   # GET /fiados
   # GET /fiados.json
   def index
-    @fiados = Fiado.all
+    @fiados = current_user.fiados
   end
 
   # GET /fiados/1
@@ -24,7 +25,7 @@ class FiadosController < ApplicationController
   # POST /fiados
   # POST /fiados.json
   def create
-    @fiado = Fiado.new(fiado_params)
+    @fiado = current_user.fiados.new(fiado_params)
 
     respond_to do |format|
       if @fiado.save

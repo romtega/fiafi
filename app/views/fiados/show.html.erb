@@ -1,29 +1,28 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+<div class="col-md-3">
+  <h3><%= @fiado.nombre %></h3>
+  <p>
+    <strong>Direccion</strong>
+    <%= @fiado.direccion %>
+  </p>
+  <p>
+    <strong>RFC</strong>
+    <%= @fiado.rfc %>
+  </p>
+  <p>
+    <strong>Email</strong>
+    <%= @fiado.email %>
+  </p>
+  <p>
+    <strong>Telefono</strong>
+    <%= @fiado.telefono %>
+  </p>
+</div>
 
-<p>
-  <strong>Nombre:</strong>
-  <%= @fiado.nombre %>
-</p>
+<div class="col-md-6">
+  <h3>Expedientes</h3>
+</div>
 
-<p>
-  <strong>Direccion:</strong>
-  <%= @fiado.direccion %>
-</p>
+  
 
-<p>
-  <strong>Rfc:</strong>
-  <%= @fiado.rfc %>
-</p>
-
-<p>
-  <strong>Telefono:</strong>
-  <%= @fiado.telefono %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @fiado.email %>
-</p>
-
-<%= link_to 'Edit', edit_fiado_path(@fiado) %> |
-<%= link_to 'Back', fiados_path %>
+</div>
