@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @fiado.nombre %>
+</p>
+
+<p>
+  <strong>Direccion:</strong>
+  <%= @fiado.direccion %>
+</p>
+
+<p>
+  <strong>Rfc:</strong>
+  <%= @fiado.rfc %>
+</p>
+
+<p>
+  <strong>Telefono:</strong>
+  <%= @fiado.telefono %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @fiado.email %>
+</p>
+
+<%= link_to 'Edit', edit_fiado_path(@fiado) %> |
+<%= link_to 'Back', fiados_path %>

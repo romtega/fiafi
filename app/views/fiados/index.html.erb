@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1 class= "text-center">Fiados</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Telefono</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @fiados.each do |fiado| %>
+      <tr>
+        <td><%= fiado.nombre %></td>
+        <td><%= fiado.telefono %></td>
+        <td><%= fiado.email %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<% if current_user %>
+<%= link_to 'Nuevo Fiado', new_fiado_path %>
+<% end %>

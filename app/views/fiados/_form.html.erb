@@ -1,0 +1,15 @@
+<%= simple_form_for(@fiado) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :nombre, required: true %>
+    <%= f.input :direccion, required: true %>
+    <%= f.input :rfc, required: true %>
+    <%= f.input :telefono, required: true %>
+    <%= f.input :email, required: true %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
