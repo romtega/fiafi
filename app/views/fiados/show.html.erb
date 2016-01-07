@@ -1,28 +1,94 @@
 <div class="row">
-<div class="col-md-3">
-  <h3><%= @fiado.nombre %></h3>
-  <p>
-    <strong>Direccion</strong>
-    <%= @fiado.direccion %>
-  </p>
-  <p>
-    <strong>RFC</strong>
-    <%= @fiado.rfc %>
-  </p>
-  <p>
-    <strong>Email</strong>
-    <%= @fiado.email %>
-  </p>
-  <p>
-    <strong>Telefono</strong>
-    <%= @fiado.telefono %>
-  </p>
+  <div class="col-md-6">
+    <h2 class="text-center">Informacion Basica</h2>
+    <h3><%= @fiado.nombre %></h3>
+    <p>
+      <strong>Direccion:</strong><br>
+      <%= @fiado.direccion %>
+    </p>
+    <p>
+      <strong>RFC:</strong><br>
+      <%= @fiado.rfc %>
+    </p>
+    <p>
+      <strong>Email:</strong><br>
+      <%= @fiado.email %>
+    </p>
+    <p>
+      <strong>Telefono:</strong><br>
+      <%= @fiado.telefono %>
+    </p>
+  </div>
+
+  <div class="col-md-6">
+    <h2 class="text-center">Expediente</h2>
+    <!-- to modify size and visuals on the image, go to app/assets/stylesheets/pages.css class img-thumbnail -->
+    <h3>Fiado</h3>
+    <p>
+      <strong>Comprobante de Domicilio Fiscal</strong><br>
+      <%= image_tag "jazzmaster.jpg", class: "img-thumbnail" %>
+    </p>
+
+    <p>
+      <strong>Identificacion Oficial del Representante Legal</strong><br>
+      "insertar link aqui"
+    </p>
+
+    <p>
+      <strong>Cedula Fiscal</strong><br>
+      "insertar link aqui"
+    </p>
+
+    <p>
+      <strong>Declaracion Anual</strong><br>
+      "insertar link aqui"
+    </p>
+
+    <p>
+      <strong>Acta Constitutiva</strong><br>
+      "insertar link aqui"
+    </p>
+
+    <p>
+      <strong>Modificacion del Acta</strong><br>
+      "insertar link aqui"
+    </p>
+
+    <p>
+      <strong>Alta de Hacienda</strong><br>
+      "insertar link aqui"
+    </p>
+
+    <p>
+      <strong>Balance y Estado de Resultados</strong><br>
+      "insertar link aqui"
+    </p>
+
+    <p>
+      <strong>Cedula del Contador</strong><br>
+      "insertar link aqui"
+    </p>
+
+
+    <h3>Obligado Solidario</h3>
+    <p>
+      <strong>Identificacion Oficial</strong><br>
+      "insertar link aqui"
+    </p>
+
+    <p>
+      <strong>Comprobante de Domicilio</strong><br>
+      "insertar link aqui"
+    </p>
+
+    <p>
+      <strong>Garantias</strong><br>
+      "insertar link aqui"
+    </p>
+  </div>
+
 </div>
 
-<div class="col-md-6">
-  <h3>Expedientes</h3>
-</div>
 
-  
-
-</div>
+<%= link_to 'Regresar', fiados_path %>
+<%= link_to 'Editar', edit_fiado_path %>

@@ -7,6 +7,7 @@ class CreateFiados < ActiveRecord::Migration
       t.string :telefono
       t.string :email
 
+
       t.timestamps null: false
     end
   end
