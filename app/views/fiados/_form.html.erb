@@ -1,12 +1,11 @@
-<%= simple_form_for(@fiado) do |f| %>
+<%= simple_form_for(@fiado, html: {class: "form-signin"}) do |f| %>
   <%= f.error_notification %>
 
-    <%= f.input :nombre, required: true %>
-    <%= f.input :direccion, required: true %>
-    <%= f.input :rfc, required: true %>
-    <%= f.input :telefono, required: true %>
-    <%= f.input :email, required: true %>
+    <%= f.input :nombre, required: true, label: false, placeholder: "Nombre Completo", input_html: {class: "form-control"} %>
+    <%= f.input :direccion, required: true,label: false, placeholder: "Direccion", input_html: {class: "form-control"} %>
+    <%= f.input :rfc, required: true, label: false, placeholder: "R.F.C.", input_html: {class: "form-control"} %>
+    <%= f.input :telefono, required: true, label: false, placeholder: "Telefono", input_html: {class: "form-control"} %>
+    <%= f.input :email, required: true, label: false, placeholder: "Email", input_html: {class: "form-control"} %>
 
-
-    <%= f.button :submit, class: "btn btn-primary" %>
+    <%= f.button :submit, class: "btn btn-primary btn-block" %>
 <% end %>
