@@ -53,3 +53,6 @@ gem 'simple_form'
 
 gem 'devise'
 
+gem "paperclip", "~> 4.3"
+
+

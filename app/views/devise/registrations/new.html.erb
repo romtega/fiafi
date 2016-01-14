@@ -3,7 +3,7 @@
 <h2 class= "text-center">Registro Nuevo</h2>
 
 <%= f.error_notification %>
-
+<%= f.input :name, required: true, autofocus: true, label: false, placeholder: "Nombre", input_html: {class: "form-control"} %>
 <%= f.input :email, required: true, autofocus: true, label: false, placeholder: "Email", input_html: {class: "form-control"} %>
 <%= f.input :password, required: true, label: false, placeholder: "Password", input_html: {class: "form-control"}  %>
 <%= f.input :password_confirmation, required: true, label: false, placeholder: "Confirmar Password", input_html: {class: "form-control"} %>

@@ -3,6 +3,13 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+
 .img-thumbnail {
 	width: 25%
+}
+
+// for the flash messages.
+.alert {
+	z-index: 1;
+	width: 300px;
 }
