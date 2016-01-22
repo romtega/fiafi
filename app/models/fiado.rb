@@ -1,5 +1,6 @@
 class Fiado < ActiveRecord::Base
-
+	extend FriendlyId
+	friendly_id :nombre, use: :slugged
 	belongs_to :user
 
 	validates_presence_of :nombre
