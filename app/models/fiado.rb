@@ -1,21 +1,23 @@
 class Fiado < ActiveRecord::Base
+
+	belongs_to :user
+
 	validates_presence_of :nombre
 	validates_presence_of :direccion
 	validates_presence_of :rfc
 	validates_presence_of :email
 	validates_presence_of :telefono
 
-	validates :cdf, attachment_presence: true
-	validates :ife, attachment_presence: true
-	validates :cf, attachment_presence: true
-	validates :da, attachment_presence: true
-	validates :ac, attachment_presence: true
-	validates :mac, attachment_presence: true
-	validates :ah, attachment_presence: true
-	validates :ber, attachment_presence: true
-	validates :cc, attachment_presence: true
+	validates :cdf,  attachment_presence: false
+	validates :ife, attachment_presence: false 
+	validates :cf, attachment_presence: false
+	validates :da, attachment_presence: false
+	validates :ac, attachment_presence: false
+	validates :mac, attachment_presence: false
+	validates :ah, attachment_presence: false
+	validates :ber, attachment_presence: false
+	validates :cc, attachment_presence: false
 
-	belongs_to :user
 
 	has_attached_file :cdf
 	has_attached_file :ife
@@ -28,8 +30,8 @@ class Fiado < ActiveRecord::Base
 	has_attached_file :cc
 
 	validates_attachment_content_type :cdf,
-	content_type: ['application/pdf'],
-	message: "Solo se aceptan formatos pdf"
+	content_type: ['application/pdf', 'image/jpeg'],
+	message: "Solo se aceptan formatos pdf o jpeg"
 	validates_attachment_content_type :ife,
 	content_type: ['application/pdf'],
 	message: "Solo se aceptan formatos pdf"

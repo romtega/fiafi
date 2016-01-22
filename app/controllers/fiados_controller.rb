@@ -30,10 +30,8 @@ class FiadosController < ApplicationController
     respond_to do |format|
       if @fiado.save
         format.html { redirect_to @fiado, notice: 'Fiado was successfully created.' }
-        format.json { render :show, status: :created, location: @fiado }
       else
         format.html { render :new }
-        format.json { render json: @fiado.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -44,10 +42,8 @@ class FiadosController < ApplicationController
     respond_to do |format|
       if @fiado.update(fiado_params)
         format.html { redirect_to @fiado, notice: 'Fiado was successfully updated.' }
-        format.json { render :show, status: :ok, location: @fiado }
       else
         format.html { render :edit }
-        format.json { render json: @fiado.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -58,7 +54,6 @@ class FiadosController < ApplicationController
     @fiado.destroy
     respond_to do |format|
       format.html { redirect_to fiados_url, notice: 'Fiado was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
@@ -71,9 +66,6 @@ class FiadosController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def fiado_params
       params.require(:fiado).permit(:nombre, :direccion, :rfc, :telefono, :email, :cdf, :ife, :cf, :da, :ac, :mac, :ah, :ber, :cc)
-
-    else
-
       
   end
 end

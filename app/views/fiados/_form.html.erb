@@ -7,15 +7,16 @@
     <%= f.input :telefono, required: true, label: false, placeholder: "Telefono", input_html: {class: "form-control"} %>
     <%= f.input :email, required: true, label: false, placeholder: "Email", input_html: {class: "form-control"} %>
 
-    Domicilio Fiscal <%= f.input :cdf, label: false %>
-    Identificacion Oficial <%= f.input :ife, label: false %>
-    Cedula Fiscal <%= f.input :cf, label: false %>
-    Declaracion Anual <%= f.input :da, label: false %>
-    Acta Constitutiva <%= f.input :ac, label: false %>
-    Modificacion de Acta Constitutiva <%= f.input :mac, label: false %>
-    Alta de Hacienda <%= f.input :ah, label: false %>
-    Balance y Estado de Resultados <%= f.input :ber, label: false %>
-    Cedula del Contador <%= f.input :cc, label: false %>
+    <label>Domicilio Fiscal</label><%= f.input :cdf, label: false, required: false %>
+    <label>Identificacion Oficial</label><%= f.input :ife, label: false, required: false %>
+    <label>Cedula Fiscal</label><%= f.input :cf, label: false, required: false %>
+    <label>Declaracion Anual</label><%= f.input :da, label: false, required: false %>
+    <label>Acta Constitutiva</label><%= f.input :ac, label: false, required: false %>
+    <label>Modificacion de Acta Constitutiva</label><%= f.input :mac, label: false, required: false %>
+    <label>Alta de Hacienda</label><%= f.input :ah, label: false, required: false %>
+    <label>Balance y Estado de Resultados</label><%= f.input :ber, label: false, required: false %>
+    <label>Cedula del Contador</label><%= f.input :cc, label: false, required: false %>
 
     <%= f.button :submit, class: "btn btn-primary btn-block" %>
 <% end %>
+
