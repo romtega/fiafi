@@ -26,47 +26,47 @@
     <h3>Fiado</h3>
     <p>
       <strong>Comprobante de Domicilio Fiscal</strong><br>
-      <%= image_tag "jazzmaster.jpg", class: "img-thumbnail" %>
+      <%= image_tag @fiado.cdf.url(:original), class: "img-thumbnail" %>
     </p>
 
     <p>
       <strong>Identificacion Oficial del Representante Legal</strong><br>
-      "insertar link aqui"
+      <%= image_tag @fiado.ife.url(:original), class: "img-thumbnail" %>
     </p>
 
     <p>
       <strong>Cedula Fiscal</strong><br>
-      "insertar link aqui"
+      <%= image_tag @fiado.cf.url(:original), class: "img-thumbnail" %>
     </p>
 
     <p>
       <strong>Declaracion Anual</strong><br>
-      "insertar link aqui"
+      <%= image_tag @fiado.da.url(:original), class: "img-thumbnail" %>
     </p>
 
     <p>
       <strong>Acta Constitutiva</strong><br>
-      "insertar link aqui"
+      <%= image_tag @fiado.ac.url(:original), class: "img-thumbnail" %>
     </p>
 
     <p>
       <strong>Modificacion del Acta</strong><br>
-      "insertar link aqui"
+      <%= image_tag @fiado.mac.url(:original), class: "img-thumbnail" %>
     </p>
 
     <p>
       <strong>Alta de Hacienda</strong><br>
-      "insertar link aqui"
+      <%= image_tag @fiado.ah.url(:original), class: "img-thumbnail" %>
     </p>
 
     <p>
       <strong>Balance y Estado de Resultados</strong><br>
-      "insertar link aqui"
+      <%= image_tag @fiado.ber.url(:original), class: "img-thumbnail" %>
     </p>
 
     <p>
       <strong>Cedula del Contador</strong><br>
-      "insertar link aqui"
+      <%= image_tag @fiado.cc.url(:original), class: "img-thumbnail" %>
     </p>
 
 
