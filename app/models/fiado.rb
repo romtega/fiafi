@@ -3,6 +3,9 @@ class Fiado < ActiveRecord::Base
 	friendly_id :nombre, use: :slugged
 	belongs_to :user
 
+	geocoded_by :direccion
+	after_validation :geocode
+
 	validates_presence_of :nombre
 	validates_presence_of :direccion
 	validates_presence_of :rfc
@@ -18,9 +21,13 @@ class Fiado < ActiveRecord::Base
 	validates :ah, attachment_presence: false
 	validates :ber, attachment_presence: false
 	validates :cc, attachment_presence: false
+	validates :osife, attachment_presence: false
+	validates :oscdf, attachment_presence: false
+	validates :osg, attachment_presence: false
 
 
-	has_attached_file :cdf
+
+	has_attached_file :cdf  
 	has_attached_file :ife
 	has_attached_file :cf
 	has_attached_file :da
@@ -29,6 +36,10 @@ class Fiado < ActiveRecord::Base
 	has_attached_file :ah
 	has_attached_file :ber
 	has_attached_file :cc
+
+	has_attached_file :osife
+	has_attached_file :oscdf
+	has_attached_file :osg
 
 	validates_attachment_content_type :cdf,
 	content_type: ['application/pdf', 'image/jpeg'],
@@ -57,4 +68,14 @@ class Fiado < ActiveRecord::Base
 	validates_attachment_content_type :cc,
 	content_type: ['application/pdf'],
 	message: "Solo se aceptan formatos pdf"
+
+	validates_attachment_content_type :osife,
+	content_type: ['application/pdf', 'image/jpeg'],
+	message: "Solo se aceptan formatos pdf o jpeg"
+	validates_attachment_content_type :oscdf,
+	content_type: ['application/pdf', 'image/jpeg'],
+	message: "Solo se aceptan formatos pdf o jpeg"
+	validates_attachment_content_type :osg,
+	content_type: ['application/pdf', 'image/jpeg'],
+	message: "Solo se aceptan formatos pdf o jpeg"
 end

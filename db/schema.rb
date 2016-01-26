@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160122234346) do
+ActiveRecord::Schema.define(version: 20160126020900) do
 
   create_table "fiados", force: :cascade do |t|
     t.string   "nombre"
@@ -19,8 +19,8 @@ ActiveRecord::Schema.define(version: 20160122234346) do
     t.string   "rfc"
     t.string   "telefono"
     t.string   "email"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.integer  "user_id"
     t.string   "cdf_file_name"
     t.string   "cdf_content_type"
@@ -59,6 +59,20 @@ ActiveRecord::Schema.define(version: 20160122234346) do
     t.integer  "cc_file_size"
     t.datetime "cc_updated_at"
     t.string   "slug"
+    t.string   "osife_file_name"
+    t.string   "osife_content_type"
+    t.integer  "osife_file_size"
+    t.datetime "osife_updated_at"
+    t.string   "oscdf_file_name"
+    t.string   "oscdf_content_type"
+    t.integer  "oscdf_file_size"
+    t.datetime "oscdf_updated_at"
+    t.string   "osg_file_name"
+    t.string   "osg_content_type"
+    t.integer  "osg_file_size"
+    t.datetime "osg_updated_at"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   add_index "fiados", ["slug"], name: "index_fiados_on_slug", unique: true

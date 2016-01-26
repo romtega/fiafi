@@ -1,22 +1,35 @@
 <%= simple_form_for(@fiado, html: {class: "form-signin"}) do |f| %>
-  <%= f.error_notification %>
+<%= f.error_notification %>
 
-    <%= f.input :nombre, required: true, label: false, placeholder: "Nombre Completo", input_html: {class: "form-control"} %>
-    <%= f.input :direccion, required: true,label: false, placeholder: "Direccion", input_html: {class: "form-control"} %>
-    <%= f.input :rfc, required: true, label: false, placeholder: "R.F.C.", input_html: {class: "form-control"} %>
-    <%= f.input :telefono, required: true, label: false, placeholder: "Telefono", input_html: {class: "form-control"} %>
-    <%= f.input :email, required: true, label: false, placeholder: "Email", input_html: {class: "form-control"} %>
+<%= f.input :nombre, required: true, label: false, placeholder: "Nombre Completo", input_html: {class: "form-control" } %>
+<%= f.input :direccion, required: true,label: false, placeholder: "Direccion", input_html: {class: "form-control"} %>
+<%= f.input :rfc, required: true, label: false, placeholder: "R.F.C.", input_html: {class: "form-control"} %>
+<%= f.input :telefono, required: true, label: false, placeholder: "Telefono", input_html: {class: "form-control"} %>
+<%= f.input :email, required: true, label: false, placeholder: "Email", input_html: {class: "form-control"} %>
+<div class="row">
+    <div class="col-md-6">
+        <label>Domicilio Fiscal</label><%= f.input :cdf, label: false, required: false %>
+        <label>Identificacion Oficial</label><%= f.input :ife, label: false, required: false %>
+        <label>Cedula Fiscal</label><%= f.input :cf, label: false, required: false %>
+        <label>Declaracion Anual</label><%= f.input :da, label: false, required: false %>
+        <label>Acta Constitutiva</label><%= f.input :ac, label: false, required: false %>
+        <label>Modificacion de Acta Constitutiva</label><%= f.input :mac, label: false, required: false %>
+        <label>Alta de Hacienda</label><%= f.input :ah, label: false, required: false %>
+        <label>Balance y Estado de Resultados</label><%= f.input :ber, label: false, required: false %>
+        <label>Cedula del Contador</label><%= f.input :cc, label: false, required: false %>
+    </div>
+    <!-- Obligado Solidario -->
+    <div class="col-md-6"><br>
+        <h3>Obligado Solidario</h3>
+        <label>Identificacion Oficial</label><%= f.input :osife, label: false, required: false %>
+        <label>Domicilio Fiscal</label><%= f.input :oscdf, label: false, required: false %>
+        <label>Garantias</label><%= f.input :osg, label: false, required: false %>
+    </div>
 
-    <label>Domicilio Fiscal</label><%= f.input :cdf, label: false, required: false %>
-    <label>Identificacion Oficial</label><%= f.input :ife, label: false, required: false %>
-    <label>Cedula Fiscal</label><%= f.input :cf, label: false, required: false %>
-    <label>Declaracion Anual</label><%= f.input :da, label: false, required: false %>
-    <label>Acta Constitutiva</label><%= f.input :ac, label: false, required: false %>
-    <label>Modificacion de Acta Constitutiva</label><%= f.input :mac, label: false, required: false %>
-    <label>Alta de Hacienda</label><%= f.input :ah, label: false, required: false %>
-    <label>Balance y Estado de Resultados</label><%= f.input :ber, label: false, required: false %>
-    <label>Cedula del Contador</label><%= f.input :cc, label: false, required: false %>
+
+
 
     <%= f.button :submit, class: "btn btn-primary btn-block" %>
-<% end %>
+    <% end %>
+</div>
 

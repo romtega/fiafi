@@ -18,6 +18,26 @@
       <strong>Telefono:</strong><br>
       <%= @fiado.telefono %>
     </p>
+
+<div id="map-canvas" style="width: 530px; height: 330px;"></div>
+<script type="text/javascript">
+      function initialize() {
+        var mycenter = { lat: <%= @fiado.latitude %>, lng: <%= @fiado.longitude %>}
+        var mapOptions = {
+          center: mycenter,
+          zoom: 15
+        };
+        var map = new google.maps.Map(document.getElementById('map-canvas'),
+            mapOptions);
+        var marker = new google.maps.Marker({
+          position: mycenter,
+          map: map
+        });
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+
+
   </div>
 
   <div class="col-md-6">
@@ -73,17 +93,17 @@
     <h3>Obligado Solidario</h3>
     <p>
       <strong>Identificacion Oficial</strong><br>
-      "insertar link aqui"
+      <%= image_tag @fiado.osife.url(:original), class: "img-thumbnail" %>
     </p>
 
     <p>
       <strong>Comprobante de Domicilio</strong><br>
-      "insertar link aqui"
+      <%= image_tag @fiado.oscdf.url(:original), class: "img-thumbnail" %>
     </p>
 
     <p>
       <strong>Garantias</strong><br>
-      "insertar link aqui"
+      <%= image_tag @fiado.osg.url(:original), class: "img-thumbnail" %>
     </p>
   </div>
 
@@ -92,3 +112,5 @@
 
 <%= link_to 'Regresar', fiados_path %>
 <%= link_to 'Editar', edit_fiado_path %>
+
+

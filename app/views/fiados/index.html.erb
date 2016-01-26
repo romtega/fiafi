@@ -1,29 +1,30 @@
 <p id="notice"><%= notice %></p>
-
 <% if current_user %>
 <%= link_to 'Nuevo Fiado', new_fiado_path %>
 <% end %>
-<h1 class= "text-center">Fiados</h1>
+<div class="jumbotron text-center">
+  <h1>Fiados</h1>
+  <table class="table table-hover">
+    <thead>
+      <tr class="active">
+        <th>Nombre</th>
+        <th>Telefono</th>
+        <th>Email</th>
+        <th>Direccion</th>
+      </tr>
+    </thead>
 
-<table class="table table-hover">
-  <thead>
-    <tr class="active">
-      <th>Nombre</th>
-      <th>Telefono</th>
-      <th>Email</th>
-      <th>Direccion</th>
-    </tr>
-  </thead>
+    <tbody>
+      <% @fiados.each do |fiado| %>
+      <tr>
+        <td class="active"><%= link_to fiado.nombre, fiado_path(fiado) %></td>
+        <td><%= fiado.telefono %></td>
+        <td><%= fiado.email %></td>
+        <td><%= fiado.direccion %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
-  <tbody>
-    <% @fiados.each do |fiado| %>
-    <tr>
-      <td class="active"><%= link_to fiado.nombre, fiado_path(fiado) %></td>
-      <td><%= fiado.telefono %></td>
-      <td><%= fiado.email %></td>
-      <td><%= fiado.direccion %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
 

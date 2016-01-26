@@ -65,7 +65,7 @@ class FiadosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def fiado_params
-      params.require(:fiado).permit(:nombre, :direccion, :rfc, :telefono, :email, :cdf, :ife, :cf, :da, :ac, :mac, :ah, :ber, :cc)
+      params.require(:fiado).permit(:nombre, :direccion, :rfc, :telefono, :email, :cdf, :ife, :cf, :da, :ac, :mac, :ah, :ber, :cc, :osife, :oscdf, :osg)
       
   end
 end
