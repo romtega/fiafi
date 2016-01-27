@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160126020900) do
+ActiveRecord::Schema.define(version: 20160126211151) do
 
   create_table "fiados", force: :cascade do |t|
     t.string   "nombre"
@@ -76,6 +76,17 @@ ActiveRecord::Schema.define(version: 20160126020900) do
   end
 
   add_index "fiados", ["slug"], name: "index_fiados_on_slug", unique: true
+
+  create_table "fianzas", force: :cascade do |t|
+    t.string   "numerofianza"
+    t.string   "textofianza_file_name"
+    t.string   "textofianza_content_type"
+    t.integer  "textofianza_file_size"
+    t.datetime "textofianza_updated_at"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.integer  "user_id"
+  end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false

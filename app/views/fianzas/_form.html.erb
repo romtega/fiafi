@@ -1,0 +1,9 @@
+<%= simple_form_for(@fianza, html: {class: "form-signin"}) do |f| %>
+<%= f.error_notification %>
+
+<%= f.input :numerofianza, label: false, required: true, placeholder: "Numero de Fianza", input_html: {class: "form_control"} %>
+<label>Fianza</label><%= f.input :textofianza, label: false, required: true %>
+
+
+<%= f.button :submit, class: "btn btn-primary btn-block" %>
+<% end %>

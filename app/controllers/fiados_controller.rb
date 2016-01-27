@@ -1,4 +1,4 @@
-class FiadosController < ApplicationController
+  class FiadosController < ApplicationController
   before_action :authenticate_user!
   before_action :set_fiado, only: [:show, :edit, :update, :destroy]
 

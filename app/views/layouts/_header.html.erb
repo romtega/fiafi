@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -14,7 +14,7 @@
      <% if current_user %>  
      <ul class="nav navbar-nav">
       <li><%= link_to "Fiados", fiados_path %></li>
-      <li><a href="#">Fianzas</a></li>
+      <li><%= link_to "Fianzas", fianzas_path %></li>
     </ul>
     <form class="navbar-form navbar-left" role="search">
       <div class="form-group">
@@ -32,7 +32,7 @@
      <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
      <% else %>
      <li><%= link_to "About", about_path %></li>
-     <li><%= link_to "Log In", new_user_session_path %></li>
+     <li><%= link_to "Registrate", new_user_registration_path %></li>
      <% end %>
    </ul>
  </div><!-- /.navbar-collapse -->
