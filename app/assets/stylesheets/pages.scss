@@ -22,22 +22,69 @@ body {
 
 .landing {
 	background :image-url("background.jpg") no-repeat center center fixed;
+
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
     height: 100vh;
-    }
 
-    .navbar {
-    	margin-bottom: 0px;
-    }
+}
 
-    .btn-landing {
-    	background : none;
-    	border: solid;
-    }
+.navbar {
+   margin-bottom: 0px;
+   border-color: white;
+}
 
-    .btn-landing:hover {
-    	background : none;
-    	border-color: white;
-    }
+.btn-landing {
+   border: solid;
+}
+
+.btn-landing:hover {
+   background-color : none;
+   border-color: #00004d;
+}
+
+.jumbotron-landing {
+   border: solid;
+   border-color: none;
+
+    padding-bottom: 50px;
+
+}
+
+.jumbotron {
+  font-family: Arial;  
+
+} 
+
+.table th, .table td { 
+     border-top: white !important; 
+
+ }
+
+ .row {
+font-family: Arial;  
+
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+

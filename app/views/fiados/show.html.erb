@@ -1,7 +1,6 @@
 <div class="row">
   <div class="col-md-6">
-    <h2 class="text-center">Informacion Basica</h2>
-    <h3><%= @fiado.nombre %></h3>
+    <h2><strong><%= @fiado.nombre %></strong></h2>
     <p>
       <strong>Direccion:</strong><br>
       <%= @fiado.direccion %>
@@ -19,98 +18,175 @@
       <%= @fiado.telefono %>
     </p>
 
-<div id="map-canvas" style="width: 530px; height: 330px;"></div>
-<script type="text/javascript">
-      function initialize() {
-        var mycenter = { lat: <%= @fiado.latitude %>, lng: <%= @fiado.longitude %>}
-        var mapOptions = {
-          center: mycenter,
-          zoom: 15
-        };
-        var map = new google.maps.Map(document.getElementById('map-canvas'),
-            mapOptions);
-        var marker = new google.maps.Marker({
-          position: mycenter,
-          map: map
-        });
-      }
-      google.maps.event.addDomListener(window, 'load', initialize);
+    <div id="map-canvas" style="width: 530px; height: 300px"></div>
+    <script type="text/javascript">
+    function initialize() {
+      var mycenter = { lat: <%= @fiado.latitude %>, lng: <%= @fiado.longitude %>}
+      var mapOptions = {
+        center: mycenter,
+        zoom: 15
+      };
+      var map = new google.maps.Map(document.getElementById('map-canvas'),
+        mapOptions);
+      var marker = new google.maps.Marker({
+        position: mycenter,
+        map: map
+      });
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);
     </script>
+    <br>
+    <div class="row">
+      <div class="col-md-2"><i><%= link_to 'Regresar ', fiados_path %></i></div>
+      <div class="col-md-2"><i><%= link_to 'Editar', edit_fiado_path %></i></div>
 
-
+    </div>
   </div>
 
   <div class="col-md-6">
-    <h2 class="text-center">Expediente</h2>
+    <h3 class="text-center">Expediente</h3>
     <!-- to modify size and visuals on the image, go to app/assets/stylesheets/pages.css class img-thumbnail -->
-    <h3>Fiado</h3>
-    <p>
-      <strong>Comprobante de Domicilio Fiscal</strong><br>
-      <%= image_tag @fiado.cdf.url(:original), class: "img-thumbnail" %>
-    </p>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>
+            <h4>Fiado</h4>
+          </th>
+        </tr>
+      </thead>  
 
-    <p>
-      <strong>Identificacion Oficial del Representante Legal</strong><br>
-      <%= image_tag @fiado.ife.url(:original), class: "img-thumbnail" %>
-    </p>
+      <tbody>
+        <tr>
+          <td>
+            <% if @fiado.cdf.present? %>
+            <%= link_to "Comprobante de Domicilio Fiscal", @fiado.cdf.url %>
+            <% else %>
+            Comprobante de Domicilio Fiscal
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <% if @fiado.ife.present? %>
+            <%= link_to "Identificacion Oficial del Representante Legal", @fiado.ife.url %>
+            <% else %>
+            Identificacion Oficial del Representante
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <% if @fiado.cf.present? %>
+            <%= link_to "Cedula Fiscal", @fiado.cf.url %>
+            <% else %>
+            Cedula Fiscal
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <% if @fiado.da.present? %>
+            <%= link_to "Declaracion Anual", @fiado.da.url %>
+            <% else %>
+            Declaracion Anual
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <% if @fiado.ac.present? %>
+            <%= link_to "Acta Constitutiva", @fiado.ac.url %>
+            <% else %>
+            Acta Constitutiva
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <% if @fiado.mac.present? %>
+            <%= link_to "Modificacion del Acta", @fiado.mac.url %>
+            <% else %>
+            Modificacion del Acta
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <% if @fiado.ah.present? %>
+            <%= link_to "Alta de Hacienda", @fiado.ah.url %>
+            <% else %>
+            Alta de Hacienda
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <% if @fiado.ber.present? %>
+            <%= link_to "Balance y Estado de Resultados", @fiado.ber.url %>
+            <% else %>
+            Balance y Estado de Resultados
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <% if @fiado.cc.present? %>
+            <%= link_to "Cedula del Contador", @fiado.cc.url %>
+            <% else %>
+            Cedula del Contador
+            <% end %>
+          </td>
+        </tr>
+      </body>
+    </table>
 
-    <p>
-      <strong>Cedula Fiscal</strong><br>
-      <%= image_tag @fiado.cf.url(:original), class: "img-thumbnail" %>
-    </p>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>
+            <h4>Obligado Solidario</h4>
+          </th>
+        </tr>
+      </thead>
 
-    <p>
-      <strong>Declaracion Anual</strong><br>
-      <%= image_tag @fiado.da.url(:original), class: "img-thumbnail" %>
-    </p>
-
-    <p>
-      <strong>Acta Constitutiva</strong><br>
-      <%= image_tag @fiado.ac.url(:original), class: "img-thumbnail" %>
-    </p>
-
-    <p>
-      <strong>Modificacion del Acta</strong><br>
-      <%= image_tag @fiado.mac.url(:original), class: "img-thumbnail" %>
-    </p>
-
-    <p>
-      <strong>Alta de Hacienda</strong><br>
-      <%= image_tag @fiado.ah.url(:original), class: "img-thumbnail" %>
-    </p>
-
-    <p>
-      <strong>Balance y Estado de Resultados</strong><br>
-      <%= image_tag @fiado.ber.url(:original), class: "img-thumbnail" %>
-    </p>
-
-    <p>
-      <strong>Cedula del Contador</strong><br>
-      <%= image_tag @fiado.cc.url(:original), class: "img-thumbnail" %>
-    </p>
-
-
-    <h3>Obligado Solidario</h3>
-    <p>
-      <strong>Identificacion Oficial</strong><br>
-      <%= image_tag @fiado.osife.url(:original), class: "img-thumbnail" %>
-    </p>
-
-    <p>
-      <strong>Comprobante de Domicilio</strong><br>
-      <%= image_tag @fiado.oscdf.url(:original), class: "img-thumbnail" %>
-    </p>
-
-    <p>
-      <strong>Garantias</strong><br>
-      <%= image_tag @fiado.osg.url(:original), class: "img-thumbnail" %>
-    </p>
+      <tbody>
+        <tr>
+          <td>
+            <% if @fiado.osife.present? %>
+            <%= link_to "Identificacion Oficial", @fiado.osife.url %>
+            <% else %>
+            Identificacion Oficial
+            <% end %>
+          </td>
+        </tr>
+        <tr> 
+          <td>
+            <% if @fiado.oscdf.present? %>
+            <%= link_to "Comprobante de Domicilio", @fiado.oscdf.url %>
+            <% else %>
+            Comprobante de Domicilio
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <% if @fiado.osg.present? %>
+            <%= link_to "Garantias", @fiado.osg.url %>
+            <% else %>
+            Garantias
+            <% end %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-
 </div>
 
 
-<%= link_to 'Regresar', fiados_path %>
-<%= link_to 'Editar', edit_fiado_path %>
+
+
+
+
+
 
 

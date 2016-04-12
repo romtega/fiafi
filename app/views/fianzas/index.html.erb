@@ -1,15 +1,58 @@
-<p id="notice"><%= notice %></p>
 <% if current_user %>
-<%= link_to 'Nuevo Fianza', new_fianza_path %>
+<%= link_to 'Nueva Fianza', new_fianza_path %>
 <% end %>
-<div class="jumbotron text-center">
-	<h1>Fianzas</h1>
-	<div class="btn-group" role="group" aria-label="Default">
-		<h3 class: "btn btn,default">Afianzadora 1</h3>
-		<h3 class: "btn btn,default">Afianzadora 2</h3>
-		<h3 class: "btn btn,default">Afianzadora 3</h3>
-		<h3 class: "btn btn,default">Afianzadora 4</h3>
 
+<h1 class="text-center">Fianzas</h1>
+<div class="jumbotron">
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th>Primero Fianzas</th>
+				<th>ACE Fianzas Monterrey</th>
+				<th>Afianzadora Sofimex</th>
+				<th>Zurich Fianzas Mexico</th>
+				<th>Fianzas Dorama</th>
+			</tr>
+		</thead>
 
-	</div>
+		<tbody>
+			<tr>
+				<td><ul class="list-group">
+					<% @primero.each do |fianza| %>
+					 <li class="list-group-item"><%= link_to fianza.numerofianza, fianza.textofianza.url %>
+					<%= link_to "x", fianza_path(@primero), method: :delete, data: {confirm: "¿Are you sure?"}, class: "pull-right"%><% end %>
+				     </li>
+                    </ul>
+			    </td>
+
+			    <td><ul class="list-group">
+				    <% @monterrey.each do |fianza| %>
+				    <li class="list-group-item"><%= link_to fianza.numerofianza, fianza.textofianza.url %></li><% end %>
+			        </ul>
+			    </td>
+			    <td><ul class="list-group">
+				    <% @sofimex.each do |fianza| %>
+				    <li class="list-group-item"><%= link_to fianza.numerofianza, fianza.textofianza.url %></li><% end %>
+			        </ul>
+			    </td>
+			    <td><ul class="list-group">
+				    <% @zurich.each do |fianza| %>
+				    <li class="list-group-item"><%= link_to fianza.numerofianza, fianza.textofianza.url %></li><% end %>
+			        </ul>
+			    </td>
+			    <td><ul class="list-group">
+				    <% @dorama.each do |fianza| %>
+				    <li class="list-group-item"><%= link_to fianza.numerofianza, fianza.textofianza.url %></li><% end %>
+			        </ul>
+			    </td>
+		</tr>
+	</tbody>
+</table>
 </div>
+
+
+
+
+
+
+

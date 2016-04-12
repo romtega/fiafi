@@ -29,17 +29,18 @@
 	<div class="container">
 		<% end %> 
 	-->
-			<div class="landing">
-				<% flash.each do |type, message| %>
-	<div class="alert alert-success fade-in">
-		<button class="close" data-dismiss="alert">x</button>
-		<%= message %>
-	</div>
-	<% end %>
+	<div class="landing">
+		<% flash.each do |type, message| %>
+		<div class="alert alert-success fade-in">
+			<button class="close" data-dismiss="alert">x</button>
+			<%= message %>
+		</div>
+		<% end %>
 
-			<div class="container">
+		<div class="container">
 
-		<%= yield %>
+			<%= yield %>
+		</div>
 	</div>
-</body>
-</html>
+	</body>
+	</html>

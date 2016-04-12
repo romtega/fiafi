@@ -1,13 +1,14 @@
 class FianzasController < ApplicationController
 	before_action :authenticate_user!
-	before_action :set_fianza, only: [:show, :edit, :update, :destroy]
+	before_action :set_fianza, only: [:edit, :update, :destroy]
 
 
 	def index
-		@fianzas = current_user.fianzas 
-	end
-
-	def show
+		@primero = current_user.fianzas.where(afianzadora: "Primero Fianzas") 
+		@monterrey = current_user.fianzas.where(afianzadora: "ACE Fianzas Monterrey") 
+		@sofimex = current_user.fianzas.where(afianzadora: "Afianzadora Sofimex") 
+        @zurich = current_user.fianzas.where(afianzadora: "Zurich Fianzas Mexico") 
+        @dorama = current_user.fianzas.where(afianzadora: "Fianzas Dorama") 
 	end
 
 	def new
@@ -19,7 +20,7 @@ class FianzasController < ApplicationController
 
 		respond_to do |format|
 			if @fianza.save
-				format.html { redirect_to @fianza, notice: 'Fianza was successfully created.' }
+				format.html { redirect_to fianzas_path, notice: 'Fianza was successfully created.' }
 			else
 				format.html { render :new }
 			end
@@ -32,7 +33,7 @@ class FianzasController < ApplicationController
 	def update
 		respond_to do |format|
 			if @fianza.update(fianza_params)
-				format.html { redirect_to @fianza, notice: 'Fianza was successfully updated.' }
+				format.html { redirect_to fianzas_path, notice: 'Fianza was successfully updated.' }
 			else
 				format.html { render :edit }
 			end
@@ -53,6 +54,6 @@ class FianzasController < ApplicationController
 	end
 
 	def fianza_params
-		params.require(:fianza).permit(:numerofianza, :textofianza)
+		params.require(:fianza).permit(:numerofianza, :textofianza, :afianzadora)
 	end
 end

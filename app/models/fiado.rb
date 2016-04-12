@@ -27,7 +27,7 @@ class Fiado < ActiveRecord::Base
 
 
 
-	has_attached_file :cdf  
+	has_attached_file :cdf
 	has_attached_file :ife
 	has_attached_file :cf
 	has_attached_file :da
